@@ -1,5 +1,13 @@
+[build]
+  publish = "."
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
+  from = "/"
+  to = "/shell.html"
+  status = 302
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Cache-Control = "public, max-age=3600"
