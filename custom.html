@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Order — Tim Bells ✦</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="home.html" class="nav-logo">✦ Tim Bells</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="custom.html" class="active">Custom Order</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-blob blob2" style="opacity:0.35;"></div>
+    <div class="container">
+      <span class="eyebrow">✦ Made just for you</span>
+      <h1 class="page-title">Custom <em>Order</em></h1>
+      <p>Describe your dream piece and I'll bring it to life — any character, any colour, any occasion.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Process</div>
+      <h2 class="section-title">How it <em>works</em></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Fill the form</h3>
+          <p>Tell me what you'd like — character, size, colours, occasion, anything special.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We discuss</h3>
+          <p>I'll reach out via Instagram or email to confirm details & share a price quote.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>I make it ✨</h3>
+          <p>Once confirmed, I craft your piece with love. Delivery typically in 5–10 days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section section--tinted">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="form-header">
+          <span class="caveat-tag">Let's create something beautiful 🌸</span>
+          <h2>Tell me about your <em>order</em></h2>
+        </div>
+
+        <div id="customForm">
+
+          <div class="form-group">
+            <label for="itemType">What would you like?</label>
+            <select id="itemType">
+              <option value="">— choose a type —</option>
+              <option value="Crochet Character">🧶 Crochet Character (amigurumi)</option>
+              <option value="Flower Bouquet">🌸 Pipe Cleaner Flower Bouquet</option>
+              <option value="Painting">🎨 Painting (acrylic / watercolour)</option>
+              <option value="Clay Item">🏺 Clay Miniature / Jewellery</option>
+              <option value="Gift Set">🎁 Gift Set (combination)</option>
+              <option value="Other">✨ Something else!</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Describe your idea</label>
+            <textarea id="description" rows="4" placeholder="e.g. Crochet Spiderman in dark navy, about 20cm tall, as a birthday gift for my nephew. Can you add a little birthday hat? 🎂"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="yourName">Your name</label>
+              <input type="text" id="yourName" placeholder="Priya" />
+            </div>
+            <div class="form-group">
+              <label for="budget">Approx. budget</label>
+              <input type="text" id="budget" placeholder="₹500 – ₹800" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>How should I reach you?</label>
+            <div class="contact-toggle">
+              <button class="toggle-btn active" id="btnIG" type="button" onclick="setContact('instagram')">📸 Instagram DM</button>
+              <button class="toggle-btn" id="btnEmail" type="button" onclick="setContact('email')">✉️ Email</button>
+            </div>
+          </div>
+
+          <div class="form-group" id="igField">
+            <label for="igHandle">Your Instagram handle</label>
+            <input type="text" id="igHandle" placeholder="@yourhandle" />
+          </div>
+
+          <div class="form-group hidden" id="emailField">
+            <label for="emailAddr">Your email address</label>
+            <input type="email" id="emailAddr" placeholder="you@example.com" />
+          </div>
+
+          <button class="btn btn-primary btn-full" onclick="sendOrder()">Send My Order ✨</button>
+
+          <p class="form-note">I'll get back to you within 24 hours!</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IDEAS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Inspiration</div>
+      <h2 class="section-title">Popular custom <em>requests</em></h2>
+      <div class="ideas-grid">
+        <div class="idea-card">🎮 Gaming characters (Minecraft, Zelda, Pokemon)</div>
+        <div class="idea-card">💌 Anniversary gift sets</div>
+        <div class="idea-card">🐾 Custom pet portraits</div>
+        <div class="idea-card">🎓 Graduation gift bundles</div>
+        <div class="idea-card">🌈 Rainbow flower bouquets</div>
+        <div class="idea-card">👶 Baby shower decorations</div>
+        <div class="idea-card">🦸 Favourite superhero amigurumis</div>
+        <div class="idea-card">🎂 Birthday surprise sets</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">✦ Tim Bells</div>
+      <p class="footer-tagline">Handmade with love in Delhi.<br>Every stitch, a little hug. 🧶</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="custom.html">Custom Order</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/Tim.bells" target="_blank">📸 @Tim.bells</a>
+          <a href="mailto:tim.bells15@gmail.com">✉️ tim.bells15@gmail.com</a>
+          <a href="tel:+919870556951">📞 +91 98705 56951</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 Tim Bells · Made with ♥ by Aastha in Delhi</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    let contactMethod = 'instagram';
+
+    function setContact(method) {
+      contactMethod = method;
+      document.getElementById('btnIG').classList.toggle('active', method === 'instagram');
+      document.getElementById('btnEmail').classList.toggle('active', method === 'email');
+      document.getElementById('igField').classList.toggle('hidden', method !== 'instagram');
+      document.getElementById('emailField').classList.toggle('hidden', method !== 'email');
+    }
+
+    function sendOrder() {
+      const itemType = document.getElementById('itemType').value;
+      const description = document.getElementById('description').value.trim();
+      const name = document.getElementById('yourName').value.trim();
+      const budget = document.getElementById('budget').value.trim();
+      const igHandle = document.getElementById('igHandle').value.trim();
+      const email = document.getElementById('emailAddr').value.trim();
+
+      if (!itemType || !description || !name) {
+        alert('Please fill in your name, item type, and description! 🌸');
+        return;
+      }
+
+      const msg = `Hi Aastha! 🌸 I'd love to place a custom order!\n\nName: ${name}\nItem Type: ${itemType}\nDescription: ${description}${budget ? '\nBudget: ' + budget : ''}`;
+
+      if (contactMethod === 'instagram') {
+        const encodedMsg = encodeURIComponent(msg);
+        window.open(`https://www.instagram.com/direct/new/?text=${encodedMsg}`, '_blank');
+      } else {
+        if (!email) { alert('Please enter your email address!'); return; }
+        const subject = encodeURIComponent(`Custom Order Request — ${itemType}`);
+        const body = encodeURIComponent(msg + `\n\nMy email: ${email}\n\nPlease reply here or on Instagram @Tim.bells. Thank you!`);
+        window.open(`mailto:tim.bells15@gmail.com?subject=${subject}&body=${body}`, '_blank');
+      }
+    }
+  </script>
+</body>
+</html>

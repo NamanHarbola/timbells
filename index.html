@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tim Bells ✦</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { overflow: hidden; background: #fdf8f4; }
+
+    #site-frame {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+
+    /* Music disc — identical to what you already have */
+    #disc-player {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      pointer-events: auto;
+    }
+
+    #disc {
+      width: 64px; height: 64px; border-radius: 50%; cursor: pointer;
+      background: radial-gradient(circle at 30% 30%, #3a1a4a, #1a0a26 60%, #0d0616);
+      box-shadow: 0 0 0 2px #6b3fa0, 0 6px 20px rgba(100,40,140,0.5);
+      animation: discSpin 4s linear infinite;
+      animation-play-state: paused;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    #disc-inner {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, #f2a7c3, #c2527a);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Caveat', cursive; font-size: 7px; color: white;
+      font-weight: 600; line-height: 1.1; text-align: center;
+    }
+
+    #disc-label {
+      font-family: 'Caveat', cursive; font-size: 11px;
+      color: #c2527a; text-align: center; line-height: 1.3;
+    }
+
+    @keyframes discSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <iframe id="site-frame" src="home.html" title="Tim Bells"></iframe>
+
+  <div id="disc-player">
+    <div id="disc" onclick="toggleDisc()" title="Click to play/pause">
+      <div id="disc-inner">TB<br>✦</div>
+    </div>
+    <div id="disc-label">tap to play</div>
+  </div>
+
+  <audio id="bgMusic" loop preload="none">
+    <source src="music/lover-instrumental.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    let isPlaying = false;
+    const disc  = document.getElementById('disc');
+    const label = document.getElementById('disc-label');
+    const audio = document.getElementById('bgMusic');
+    audio.volume = 0.3;
+
+    function toggleDisc() {
+      if (isPlaying) {
+        audio.pause();
+        disc.style.animationPlayState = 'paused';
+        label.textContent = 'tap to play';
+        isPlaying = false;
+      } else {
+        audio.play().catch(() => { label.textContent = 'add music file'; });
+        disc.style.animationPlayState = 'running';
+        label.textContent = '♪ playing';
+        isPlaying = true;
+      }
+    }
+  </script>
+
+</body>
+</html>

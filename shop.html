@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Tim Bells ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="home.html" class="nav-logo">✦ Tim Bells</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="custom.html">Custom Order</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-blob blob1" style="opacity:0.35;"></div>
+    <div class="hero-blob blob2" style="opacity:0.28;"></div>
+    <div class="container">
+      <span class="eyebrow">✦ All products</span>
+      <h1 class="page-title">The <em>Shop</em></h1>
+      <p>Every piece is made by hand — no two are exactly alike.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- FILTERS -->
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="crochet">🧶 Crochet</button>
+        <button class="filter-btn" data-cat="flowers">🌸 Flowers</button>
+        <button class="filter-btn" data-cat="art">🎨 Paintings</button>
+        <button class="filter-btn" data-cat="clay">🏺 Clay</button>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="product-grid product-grid--large" id="productGrid">
+
+        <!-- CROCHET -->
+        <div class="product-card" data-cat="crochet">
+          <div class="product-img" style="background:#fde8f5;">
+             <img src="images/spiderman.jpg" alt="Spiderman Amigurumi"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet</span>
+            <h3>Spiderman Amigurumi</h3>
+            <p>Handcrafted crochet Spiderman, ~15 cm tall. Comes with a little web detail.</p>
+            <div class="product-footer">
+              <span class="price">₹450</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%20Spiderman%20Amigurumi%20%F0%9F%95%B7%EF%B8%8F%20Please%20let%20me%20know%20the%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="crochet">
+          <div class="product-img" style="background:#fff9e6;">
+            <img src="images/pikachu.jpg" alt="Pikachu Amigurumi"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet</span>
+            <h3>Pikachu Amigurumi</h3>
+            <p>Chubby, squishy Pikachu in soft yellow cotton yarn. Bright & cuddly!</p>
+            <div class="product-footer">
+              <span class="price">₹400</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%20Pikachu%20Amigurumi%20%E2%9A%A1%20Please%20let%20me%20know%20the%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="crochet">
+          <div class="product-img" style="background:#ffe8e8;">
+            <img src="images/deadpool.jpg" alt="Deadpool Amigurumi"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet</span>
+            <h3>Deadpool Amigurumi</h3>
+            <p>Snarky little Deadpool crochet figure — chibi style, maximum charm.</p>
+            <div class="product-footer">
+              <span class="price">₹500</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%20Deadpool%20Amigurumi%20%F0%9F%92%80%20Please%20let%20me%20know%20the%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="crochet">
+          <div class="product-img" style="background:#e8f0ff;">
+            <img src="images/dino.jpg" alt="Mini Dino Amigurumi"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet</span>
+            <h3>Mini Dino Amigurumi</h3>
+            <p>Pastel dinosaur in your choice of colour — great desk buddy!</p>
+            <div class="product-footer">
+              <span class="price">₹380</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%20Mini%20Dino%20Amigurumi%20%F0%9F%A6%95%20Please%20let%20me%20know%20the%20details%20and%20colour%20options!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLOWERS -->
+        <div class="product-card" data-cat="flowers">
+          <div class="product-img" style="background:#fef3e2;">
+            <img src="images/sunflower.jpg" alt="Sunflower Bouquet"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Flowers</span>
+            <h3>Sunflower Bouquet</h3>
+            <p>5 pipe cleaner sunflowers — never wilts, stays bright forever.</p>
+            <div class="product-footer">
+              <span class="price">₹350</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%20Sunflower%20Bouquet%20%F0%9F%8C%BB%20Please%20let%20me%20know%20the%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="flowers">
+          <div class="product-img" style="background:#fde8f5;">
+            <img src="images/lily.jpg" alt="Lily Bouquet"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Flowers</span>
+            <h3>Lily Bouquet</h3>
+            <p>Elegant pipe cleaner lilies — perfect for gifting any time of year.</p>
+            <div class="product-footer">
+              <span class="price">₹320</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%20Lily%20Bouquet%20%F0%9F%8C%B7%20Please%20let%20me%20know%20the%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="flowers">
+          <div class="product-img" style="background:#e8f5f0;">
+            <img src="images/tulip.jpg" alt="Tulips Bouquet"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Flowers</span>
+            <h3>Tulips Bouquet (12 pcs)</h3>
+            <p>A dozen crochet tulips in red, pink or mixed — pick your palette!</p>
+            <div class="product-footer">
+              <span class="price">₹550</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20to%20buy%20the%2012-piece%20Tulips%20Bouquet%20%F0%9F%8C%B9%20Please%20let%20me%20know%20the%20colour%20options%20and%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ART -->
+
+        <div class="product-card" data-cat="art">
+          <div class="product-img" style="background:#fff5e6;">
+            <img src="images/pet-portrait.jpg" alt="Pet Portrait"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Painting</span>
+            <h3>Pet Portrait</h3>
+            <p>Send me a photo of your pet — I'll paint them in acrylic on canvas.</p>
+            <div class="product-footer">
+              <span class="price">₹800</span>
+              <a href="https://www.instagram.com/direct/new/?text=Hi%20Aastha!%20I%27d%20love%20a%20Pet%20Portrait%20%F0%9F%90%B6%20I%27ll%20send%20you%20the%20photo.%20Please%20let%20me%20know%20the%20details!" target="_blank" class="btn-sm">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="custom-nudge">
+        🌟 Don't see what you're looking for? <a href="custom.html">Place a custom order →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">✦ Tim Bells</div>
+      <p class="footer-tagline">Handmade with love in Delhi.<br>Every stitch, a little hug. 🧶</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="custom.html">Custom Order</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/Tim.bells" target="_blank">📸 @Tim.bells</a>
+          <a href="mailto:tim.bells15@gmail.com">✉️ tim.bells15@gmail.com</a>
+          <a href="tel:+919870556951">📞 +91 98705 56951</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 Tim Bells · Made with ♥ by Aastha in Delhi</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.product-card[data-cat]');
+
+    const urlCat = new URLSearchParams(window.location.search).get('cat');
+    if (urlCat) {
+      filterBtns.forEach(b => b.classList.toggle('active', b.dataset.cat === urlCat));
+      cards.forEach(c => {
+        c.style.display = (urlCat === 'all' || c.dataset.cat === urlCat) ? '' : 'none';
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        cards.forEach(c => {
+          c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
