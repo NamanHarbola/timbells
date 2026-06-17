@@ -119,6 +119,12 @@
           <button class="btn btn-primary btn-full" onclick="sendOrder()">Send My Order ✨</button>
 
           <p class="form-note">I'll get back to you within 24 hours!</p>
+
+          <div id="summary-box" style="display:none; margin-top:16px; padding:16px; background:#fce8f2; border-radius:12px;">
+            <p style="font-size:12px; color:#c2527a; font-weight:600; margin-bottom:8px;">📋 Copy this into your DM:</p>
+            <pre id="order-summary" style="font-size:13px; color:#2a1a2e; white-space:pre-wrap; font-family:inherit;"></pre>
+          </div>
+
         </div>
 
       </div>
@@ -180,30 +186,33 @@
     }
 
     function sendOrder() {
-      const itemType = document.getElementById('itemType').value;
+      const itemType    = document.getElementById('itemType').value;
       const description = document.getElementById('description').value.trim();
-      const name = document.getElementById('yourName').value.trim();
-      const budget = document.getElementById('budget').value.trim();
-      const igHandle = document.getElementById('igHandle').value.trim();
-      const email = document.getElementById('emailAddr').value.trim();
+      const name        = document.getElementById('yourName').value.trim();
+      const budget      = document.getElementById('budget').value.trim();
+      const igHandle    = document.getElementById('igHandle').value.trim();
+      const email       = document.getElementById('emailAddr').value.trim();
 
       if (!itemType || !description || !name) {
         alert('Please fill in your name, item type, and description! 🌸');
         return;
       }
 
-      const msg = `Hi Aastha! 🌸 I'd love to place a custom order!\n\nName: ${name}\nItem Type: ${itemType}\nDescription: ${description}${budget ? '\nBudget: ' + budget : ''}`;
+      const msg = `Hi Aastha! 🌸\nName: ${name}\nItem: ${itemType}\nDetails: ${description}${budget ? '\nBudget: ' + budget : ''}${igHandle ? '\nMy Instagram: ' + igHandle : ''}`;
+
+      document.getElementById('order-summary').textContent = msg;
+      document.getElementById('summary-box').style.display = 'block';
 
       if (contactMethod === 'instagram') {
-        const encodedMsg = encodeURIComponent(msg);
-        window.open(`https://www.instagram.com/direct/new/?text=${encodedMsg}`, '_blank');
+        window.open('https://ig.me/m/Tim.bells', '_blank');
       } else {
         if (!email) { alert('Please enter your email address!'); return; }
         const subject = encodeURIComponent(`Custom Order Request — ${itemType}`);
-        const body = encodeURIComponent(msg + `\n\nMy email: ${email}\n\nPlease reply here or on Instagram @Tim.bells. Thank you!`);
+        const body    = encodeURIComponent(msg + `\n\nMy email: ${email}\n\nPlease reply here or on Instagram @Tim.bells. Thank you!`);
         window.open(`mailto:tim.bells15@gmail.com?subject=${subject}&body=${body}`, '_blank');
       }
     }
   </script>
+
 </body>
 </html>
