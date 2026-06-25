@@ -28,7 +28,7 @@
     <div class="hero-blob blob2" style="opacity:0.25;"></div>
     <div class="container about-hero-inner">
       <div class="about-avatar">
-        <img src="images\aastha.jpg" alt="Aastha Sharma"
+        <img src="images/aastha.jpg" alt="Aastha Sharma"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
         <div class="avatar-fallback">🧶</div>
       </div>
@@ -143,6 +143,12 @@
             <span>@Tim.bells</span>
             <span class="connect-action">Follow →</span>
           </a>
+          <a href="https://wa.me/919870556951?text=Hi%20Aastha!%20I%20found%20your%20shop%20on%20the%20Tim%20Bells%20website." target="_blank" class="connect-card">
+            <span class="connect-icon">💬</span>
+            <strong>WhatsApp</strong>
+            <span>+91 98705 56951</span>
+            <span class="connect-action">Message →</span>
+          </a>
           <a href="mailto:tim.bells15@gmail.com" class="connect-card">
             <span class="connect-icon">✉️</span>
             <strong>Email</strong>
@@ -179,14 +185,28 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <a href="https://instagram.com/Tim.bells" target="_blank">📸 @Tim.bells</a>
+          <a href="https://wa.me/919870556951?text=Hi%20Aastha!%20I%20found%20your%20shop%20on%20the%20Tim%20Bells%20website." target="_blank">💬 WhatsApp Us</a>
           <a href="mailto:tim.bells15@gmail.com">✉️ tim.bells15@gmail.com</a>
           <a href="tel:+919870556951">📞 +91 98705 56951</a>
         </div>
       </div>
-      <div class="footer-bottom">© 2025 Tim Bells · Made with ♥ by Aastha in Delhi</div>
+      <div class="footer-bottom">© 2026 Tim Bells · Made with ♥ by Aastha in Delhi</div>
     </div>
   </footer>
 
+  
+  <!-- MUSIC PLAYER (persists across pages via player.js) -->
+  <div id="disc-player">
+    <div id="disc" title="Click to play/pause">
+      <div id="disc-inner">TB<br>✦</div>
+    </div>
+    <div id="disc-label">tap to play</div>
+  </div>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music/lover-instrumental.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="player.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

@@ -428,7 +428,7 @@ img { max-width: 100%; display: block; }
   }
 }
 
-.product-card {
+.product-card { 
   background: white;
   border-radius: 20px;
   display: flex;

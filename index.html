@@ -2,98 +2,232 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tim Bells ✦</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { overflow: hidden; background: #fdf8f4; }
-
-    #site-frame {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      display: block;
-    }
-
-    /* Music disc — identical to what you already have */
-    #disc-player {
-      position: fixed;
-      bottom: 24px;
-      right: 20px;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      pointer-events: auto;
-    }
-
-    #disc {
-      width: 64px; height: 64px; border-radius: 50%; cursor: pointer;
-      background: radial-gradient(circle at 30% 30%, #3a1a4a, #1a0a26 60%, #0d0616);
-      box-shadow: 0 0 0 2px #6b3fa0, 0 6px 20px rgba(100,40,140,0.5);
-      animation: discSpin 4s linear infinite;
-      animation-play-state: paused;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    #disc-inner {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: radial-gradient(circle at 40% 35%, #f2a7c3, #c2527a);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Caveat', cursive; font-size: 7px; color: white;
-      font-weight: 600; line-height: 1.1; text-align: center;
-    }
-
-    #disc-label {
-      font-family: 'Caveat', cursive; font-size: 11px;
-      color: #c2527a; text-align: center; line-height: 1.3;
-    }
-
-    @keyframes discSpin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet"/>
+  <title>Tim Bells ✦ Handmade by Aastha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <iframe id="site-frame" src="home.html" title="Tim Bells"></iframe>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="home.html" class="nav-logo">✦ Tim Bells</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="custom.html">Custom Order</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <span class="eyebrow">✦ Handmade with love in Delhi</span>
+    <h1 class="hero-title">Tiny things,<br><em>big feelings.</em></h1>
+    <p class="hero-sub">Crochet characters, pipe cleaner flowers & more — each piece made by hand, just for you.</p>
+    <div class="hero-btns">
+      <a href="shop.html" class="btn btn-primary">Shop Now</a>
+      <a href="custom.html" class="btn btn-ghost">Custom Order ✦</a>
+    </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-track">
+      <span class="trust-item">✦ Handmade in Delhi</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">🌸 100+ Happy Customers</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">📦 Ships Pan India</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">💌 Custom Orders Open</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">✦ Handmade in Delhi</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">🌸 100+ Happy Customers</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">📦 Ships Pan India</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+      <span class="trust-item">💌 Custom Orders Open</span>
+      <span class="trust-item"><span class="trust-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">What we make</div>
+      <h2 class="section-title">Made by hand,<br><em>from the heart</em></h2>
+      <div class="cat-grid">
+        <a href="shop.html?cat=crochet" class="cat-card">
+          <div class="cat-icon">🧶</div>
+          <h3>Crochet</h3>
+          <p>Spiderman, Pikachu, Deadpool & more characters you love</p>
+          <span class="cat-link">Browse →</span>
+        </a>
+        <a href="shop.html?cat=flowers" class="cat-card">
+          <div class="cat-icon">🌸</div>
+          <h3>Flowers</h3>
+          <p>Everlasting pipe cleaner bouquets in every colour</p>
+          <span class="cat-link">Browse →</span>
+        </a>
+        <a href="shop.html?cat=art" class="cat-card">
+          <div class="cat-icon">🎨</div>
+          <h3>Paintings</h3>
+          <p>Acrylic & watercolour pieces for your walls</p>
+          <span class="cat-link">Browse →</span>
+        </a>
+        <a href="custom.html" class="cat-card cat-card--highlight">
+          <div class="cat-icon">✨</div>
+          <h3>Custom Order</h3>
+          <p>Your idea, brought to life — share your dream piece</p>
+          <span class="cat-link">Order →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="section section--tinted">
+    <div class="container">
+      <div class="section-label">Fan favourites</div>
+      <h2 class="section-title">Best <em>sellers</em></h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img" style="background:#fde8f5;">
+            <img src="images/spiderman.jpg" alt="Spiderman Amigurumi"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet</span>
+            <h3>Spiderman Amigurumi</h3>
+            <p>Handcrafted crochet Spiderman,Perfect gift!</p>
+            <div class="product-footer">
+              <span class="price">₹450</span>
+              <div class="buy-btn-group">
+                <a href="https://ig.me/m/Tim.bells" target="_blank" class="btn-sm btn-sm--ig" title="Order via Instagram DM">📸 DM</a>
+                <a href="https://wa.me/919870556951?text=Hi%20Aastha%21%20%F0%9F%8C%B8%20I%27d%20like%20to%20order%20the%20Crochet%20%28%E2%82%B9450%29%20from%20your%20Tim%20Bells%20shop." target="_blank" class="btn-sm btn-sm--wa" title="Order via WhatsApp">💬 WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background:#fef3e2;">
+            <img src="images/sunflower.jpg" alt="Sunflower Bouquet"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Flowers</span>
+            <h3>Sunflower Bouquet</h3>
+            <p>5 pipe cleaner sunflowers — never wilts, always bright!</p>
+            <div class="product-footer">
+              <span class="price">₹350</span>
+              <div class="buy-btn-group">
+                <a href="https://ig.me/m/Tim.bells" target="_blank" class="btn-sm btn-sm--ig" title="Order via Instagram DM">📸 DM</a>
+                <a href="https://wa.me/919870556951?text=Hi%20Aastha%21%20%F0%9F%8C%B8%20I%27d%20like%20to%20order%20the%20Sunflower%20Bouquet%20%28%E2%82%B9350%29%20from%20your%20Tim%20Bells%20shop." target="_blank" class="btn-sm btn-sm--wa" title="Order via WhatsApp">💬 WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background:#e8f5e9;">
+            <img src="images/pikachu.jpg" alt="Pikachu Amigurumi"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet</span>
+            <h3>Pikachu Amigurumi</h3>
+            <p>Chubby, squishy Pikachu made with soft cotton yarn.</p>
+            <div class="product-footer">
+              <span class="price">₹400</span>
+              <div class="buy-btn-group">
+                <a href="https://ig.me/m/Tim.bells" target="_blank" class="btn-sm btn-sm--ig" title="Order via Instagram DM">📸 DM</a>
+                <a href="https://wa.me/919870556951?text=Hi%20Aastha%21%20%F0%9F%8C%B8%20I%27d%20like%20to%20order%20the%20Pikachu%20Amigurumi%20%28%E2%82%B9400%29%20from%20your%20Tim%20Bells%20shop." target="_blank" class="btn-sm btn-sm--wa" title="Order via WhatsApp">💬 WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="see-all">
+        <a href="shop.html" class="btn btn-ghost">See all products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--lavender">
+    <div class="container">
+      <div class="section-label">Love notes</div>
+      <h2 class="section-title">What people <em>say</em></h2>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Got the Spiderman amigurumi for my nephew and he absolutely lost his mind over it. The quality is insane for the price!"</p>
+        <span class="testimonial-author">— Priya M., Delhi</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The pipe cleaner sunflowers are so beautiful and lasted forever. Ordered a custom bouquet in my favourite colours — perfect!"</p>
+        <span class="testimonial-author">— Riya K., Mumbai</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM BANNER -->
+  <section class="custom-banner">
+    <div class="container">
+      <span class="banner-eyebrow">✦ Something special</span>
+      <h2>Want something <em>one-of-a-kind?</em></h2>
+      <p>Your favourite character, your chosen colours, your personal message — I'll make it happen.</p>
+      <a href="custom.html" class="btn btn-white">Place Custom Order</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">✦ Tim Bells</div>
+      <p class="footer-tagline">Handmade with love in Delhi.<br>Every stitch, a little hug. 🧶</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="custom.html">Custom Order</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/Tim.bells" target="_blank">📸 @Tim.bells</a>
+          <a href="https://wa.me/919870556951?text=Hi%20Aastha!%20I%20found%20your%20shop%20on%20the%20Tim%20Bells%20website." target="_blank">💬 WhatsApp Us</a>
+          <a href="mailto:tim.bells15@gmail.com">✉️ tim.bells15@gmail.com</a>
+          <a href="tel:+919870556951">📞 +91 98705 56951</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Tim Bells · Made with ♥ by Aastha in Delhi</div>
+    </div>
+  </footer>
+
+  
+  <!-- MUSIC PLAYER (persists across pages via player.js) -->
   <div id="disc-player">
-    <div id="disc" onclick="toggleDisc()" title="Click to play/pause">
+    <div id="disc" title="Click to play/pause">
       <div id="disc-inner">TB<br>✦</div>
     </div>
     <div id="disc-label">tap to play</div>
   </div>
-
-  <audio id="bgMusic" loop preload="none">
+  <audio id="bgMusic" loop preload="auto">
     <source src="music/lover-instrumental.mp3" type="audio/mpeg" />
   </audio>
 
-  <script>
-    let isPlaying = false;
-    const disc  = document.getElementById('disc');
-    const label = document.getElementById('disc-label');
-    const audio = document.getElementById('bgMusic');
-    audio.volume = 0.3;
-
-    function toggleDisc() {
-      if (isPlaying) {
-        audio.pause();
-        disc.style.animationPlayState = 'paused';
-        label.textContent = 'tap to play';
-        isPlaying = false;
-      } else {
-        audio.play().catch(() => { label.textContent = 'add music file'; });
-        disc.style.animationPlayState = 'running';
-        label.textContent = '♪ playing';
-        isPlaying = true;
-      }
-    }
-  </script>
-
+  <script src="player.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
