@@ -331,6 +331,23 @@ img { max-width: 100%; display: block; }
 
 .btn-sm:hover { background: var(--rose-deeper); transform: scale(1.04); }
 
+.buy-btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-sm--ig {
+  background: var(--rose-dark);
+}
+
+.btn-sm--wa {
+  background: #25D366;
+}
+
+.btn-sm--wa:hover {
+  background: #1ebc59;
+}
+
 .btn-full { width: 100%; justify-content: center; }
 
 /* ===== SECTIONS ===== */
@@ -428,7 +445,7 @@ img { max-width: 100%; display: block; }
   }
 }
 
-.product-card { 
+.product-card {
   background: white;
   border-radius: 20px;
   display: flex;
@@ -467,7 +484,10 @@ img { max-width: 100%; display: block; }
 .product-info h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin: 7px 0 4px; }
 .product-info p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; flex: 1; margin-bottom: 12px; }
 
-.product-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.product-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+
+.buy-btn-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.buy-btn-group .btn-sm { padding: 7px 11px; font-size: 11px; }
 
 .price {
   font-family: 'Playfair Display', serif;
@@ -666,7 +686,12 @@ img { max-width: 100%; display: block; }
 }
 
 @media (min-width: 600px) {
-  .connect-cards { flex-direction: row; }
+  .connect-cards { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .connect-card { flex: 0 1 calc(50% - 6px); }
+}
+
+@media (min-width: 900px) {
+  .connect-card { flex: 0 1 calc(25% - 9px); }
 }
 
 .connect-card {
@@ -678,7 +703,6 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  flex: 1;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -853,6 +877,24 @@ img { max-width: 100%; display: block; }
 .filter-btn:hover { border-color: var(--rose); color: var(--rose-dark); }
 .filter-btn.active { background: var(--rose-dark); color: white; border-color: var(--rose-dark); }
 
+.filters--budget {
+  margin-top: -8px;
+  margin-bottom: 28px;
+  align-items: center;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-right: 2px;
+}
+
+.filter-btn--budget {
+  font-size: 12.5px;
+  padding: 7px 14px;
+}
+
 .custom-nudge {
   text-align: center;
   margin-top: 28px;
@@ -864,6 +906,83 @@ img { max-width: 100%; display: block; }
 }
 
 .custom-nudge a { color: var(--rose-dark); font-weight: 600; }
+
+/* ===== MUSIC DISC PLAYER (shared, all pages) ===== */
+#disc-player {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+#disc {
+  width: 56px; height: 56px; border-radius: 50%; cursor: pointer;
+  background: radial-gradient(circle at 30% 30%, #3a1a4a, #1a0a26 60%, #0d0616);
+  box-shadow: 0 0 0 2px #6b3fa0, 0 6px 20px rgba(100,40,140,0.5);
+  animation: discSpin 4s linear infinite;
+  animation-play-state: paused;
+  display: flex; align-items: center; justify-content: center;
+}
+
+#disc-inner {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #f2a7c3, #c2527a);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Caveat', cursive; font-size: 6px; color: white;
+  font-weight: 600; line-height: 1.1; text-align: center;
+}
+
+#disc-label {
+  font-family: 'Caveat', cursive; font-size: 11px;
+  color: var(--rose-dark); text-align: center; line-height: 1.3;
+  background: rgba(253,248,244,0.85);
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+
+@keyframes discSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ===== WHATSAPP FLOATING BUTTON ===== */
+#wa-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 20px;
+  z-index: 999;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(37,211,102,0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: waPulse 2.4s ease-in-out infinite;
+}
+
+#wa-float-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 22px rgba(37,211,102,0.55);
+}
+
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 6px 18px rgba(37,211,102,0.45); }
+  50% { box-shadow: 0 6px 18px rgba(37,211,102,0.45), 0 0 0 8px rgba(37,211,102,0.12); }
+}
+
+@media (max-width: 600px) {
+  #wa-float-btn { width: 48px; height: 48px; bottom: 18px; left: 14px; }
+  #disc-player { bottom: 18px; right: 14px; }
+  #disc { width: 48px; height: 48px; }
+}
 
 /* ===== FOOTER ===== */
 .footer {
