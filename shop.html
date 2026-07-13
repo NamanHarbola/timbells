@@ -39,8 +39,9 @@
       <div class="filters" id="filters">
         <button class="filter-btn active" data-cat="all">All</button>
         <button class="filter-btn" data-cat="crochet">🧶 Crochet</button>
-        <button class="filter-btn" data-cat="flowers">🌸 Crochet Keychain</button>
-        <button class="filter-btn" data-cat="clay">🏺 Clay</button>
+        <button class="filter-btn" data-cat="keychains">🔑 Crochet Keychains</button>
+        <button class="filter-btn" data-cat="clips">📎 Crochet Clips</button>
+        <button class="filter-btn" data-cat="plushies">🧸 Crochet Plushies</button>
       </div>
 
       <div class="filters filters--budget" id="budgetFilters">
@@ -54,14 +55,14 @@
       <!-- PRODUCTS -->
       <div class="product-grid product-grid--large" id="productGrid">
 
-        <!-- CROCHET -->
-        <div class="product-card" data-cat="crochet" data-price="450">
+        <!-- KEYCHAINS -->
+        <div class="product-card" data-cat="keychains" data-price="450">
           <div class="product-img" style="background:#fde8f5;">
              <img src="images/spiderman.jpg" alt="Crochet Bouquet Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
           </div>
           <div class="product-info">
-            <span class="product-tag">Crochet</span>
+            <span class="product-tag">Crochet Keychain</span>
             <h3>Crochet Bouquet Keychain</h3>
             <p>Handcrafted crochet flower bouquet</p>
             <div class="product-footer">
@@ -74,13 +75,13 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="crochet" data-price="400">
+        <div class="product-card" data-cat="clips" data-price="400">
           <div class="product-img" style="background:#fff9e6;">
             <img src="images/pikachu.jpg" alt="Crochet Bow Hairclips"
        style="width:100%;height:100%;object-fit:cover;" />
           </div>
           <div class="product-info">
-            <span class="product-tag">Crochet</span>
+            <span class="product-tag">Crochet Clips</span>
             <h3>Crochet Bow Hairclips</h3>
             <p>Chubby, squishy Pikachu in soft yellow cotton yarn. Bright & cuddly!</p>
             <div class="product-footer">
@@ -93,13 +94,13 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="crochet" data-price="500">
+        <div class="product-card" data-cat="keychains" data-price="500">
           <div class="product-img" style="background:#ffe8e8;">
             <img src="images/deadpool.jpg" alt="Crochet Evil Eye Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
           </div>
           <div class="product-info">
-            <span class="product-tag">Crochet</span>
+            <span class="product-tag">Crochet Keychain</span>
             <h3>Crochet Evil Eye Keychain</h3>
             <p>Snarky little Deadpool crochet figure — chibi style, maximum charm.</p>
             <div class="product-footer">
@@ -112,13 +113,13 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="crochet" data-price="380">
+        <div class="product-card" data-cat="keychains" data-price="380">
           <div class="product-img" style="background:#e8f0ff;">
             <img src="images/dino.jpg" alt="Crochet Strawberry Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
           </div>
           <div class="product-info">
-            <span class="product-tag">Crochet</span>
+            <span class="product-tag">Crochet Keychain</span>
             <h3>Crochet Strawberry Keychain</h3>
             <p>Pastel dinosaur in your choice of colour — great desk buddy!</p>
             <div class="product-footer">
@@ -131,8 +132,7 @@
           </div>
         </div>
 
-        <!-- FLOWERS -->
-        <div class="product-card" data-cat="crochet" data-price="350">
+        <div class="product-card" data-cat="keychains" data-price="350">
           <div class="product-img" style="background:#fef3e2;">
             <img src="images/sunflower.jpg" alt="Crochet Paw keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -151,7 +151,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="crochet" data-price="320">
+        <div class="product-card" data-cat="keychains" data-price="320">
           <div class="product-img" style="background:#fde8f5;">
             <img src="images/lily.jpg" alt="Crochet Mini Octopus Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -170,7 +170,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="crochet" data-price="550">
+        <div class="product-card" data-cat="keychains" data-price="550">
           <div class="product-img" style="background:#e8f5f0;">
             <img src="images/tulip.jpg" alt="Tulips Bouquet"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -189,9 +189,7 @@
           </div>
         </div>
 
-        <!-- ART -->
-
-        <div class="product-card" data-cat="art" data-price="800">
+        <div class="product-card" data-cat="keychains" data-price="800">
           <div class="product-img" style="background:#fff5e6;">
             <img src="images/pet-portrait.jpg" alt="Crochet Cigarette Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -210,7 +208,20 @@
           </div>
         </div>
 
+        <!--
+          ADD NEW PRODUCTS HERE. Copy a product-card block above and change:
+          - data-cat: "crochet" | "keychains" | "clips" | "plushies"
+          - data-price: plain number, no ₹ symbol (used for budget filtering)
+          - image src, alt text, product-tag, title, description, price, WhatsApp message
+        -->
+
       </div>
+
+      <!-- Shown automatically when a filter has zero matching products -->
+      <p id="noResults" class="no-results" style="display:none;">
+        🧸 No products in this category yet — but new pieces drop often! In the meantime,
+        <a href="custom.html">place a custom order</a> or check back soon.
+      </p>
 
       <div class="custom-nudge">
         🌟 Don't see what you're looking for? <a href="custom.html">Place a custom order →</a>
@@ -265,8 +276,10 @@
 
     let activeCat = 'all';
     let activeBudget = 'all';
+    const noResults = document.getElementById('noResults');
 
     function applyFilters() {
+      let visibleCount = 0;
       cards.forEach(card => {
         const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
 
@@ -277,8 +290,11 @@
           matchesBudget = price >= min && price <= max;
         }
 
-        card.style.display = (matchesCat && matchesBudget) ? '' : 'none';
+        const show = matchesCat && matchesBudget;
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
       });
+      if (noResults) noResults.style.display = visibleCount === 0 ? '' : 'none';
     }
 
     // Allow ?cat= in URL to preselect a category (used by homepage links)
