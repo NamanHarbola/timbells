@@ -428,6 +428,15 @@ img { max-width: 100%; display: block; }
 .cat-card--highlight .cat-link { color: white !important; }
 .cat-card--highlight p { opacity: 0.82; }
 
+.cat-card--pink {
+  background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+}
+
+.cat-card--pink h3,
+.cat-card--pink p,
+.cat-card--pink .cat-link { color: white !important; }
+.cat-card--pink p { opacity: 0.88; }
+
 .cat-icon { font-size: 32px; margin-bottom: 10px; }
 .cat-card--full .cat-icon { margin-bottom: 0; font-size: 36px; flex-shrink: 0; }
 
@@ -1347,6 +1356,128 @@ img { max-width: 100%; display: block; }
   color: var(--rose-deeper);
   font-weight: 600;
 }
+
+/* ===== BUILD-YOUR-OWN BOUQUET BUILDER ===== */
+.flower-builder {
+  border: 2px dashed var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  background: var(--warm-white);
+}
+
+.flower-builder-intro { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 14px; line-height: 1.5; }
+
+.flower-picker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+@media (min-width: 600px) { .flower-picker { grid-template-columns: repeat(3, 1fr); } }
+
+.flower-type-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 10px;
+  text-align: center;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.flower-type-emoji { font-size: 24px; margin-bottom: 4px; }
+.flower-type-card h5 { font-size: 12.5px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+
+.flower-color-row { display: flex; gap: 6px; justify-content: center; margin-bottom: 9px; flex-wrap: wrap; align-items: center; }
+.flower-color-dot {
+  width: 19px; height: 19px; border-radius: 50%;
+  border: 2px solid transparent; cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10);
+  transition: transform 0.12s, border-color 0.12s;
+}
+.flower-color-dot:hover { transform: scale(1.12); }
+.flower-color-dot.selected { border-color: var(--rose-dark); transform: scale(1.18); }
+
+.flower-color-custom {
+  position: relative;
+  width: 19px; height: 19px; border-radius: 50%;
+  border: 2px dashed rgba(0,0,0,0.25);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.12s, border-color 0.12s;
+  overflow: hidden;
+}
+.flower-color-custom:hover { transform: scale(1.12); }
+.flower-color-custom.selected { border-color: var(--rose-dark); border-style: solid; transform: scale(1.18); }
+.flower-color-custom-icon { font-size: 9px; filter: drop-shadow(0 0 1px rgba(255,255,255,0.9)); pointer-events: none; }
+.flower-color-custom input[type="color"] {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0; cursor: pointer; border: none; padding: 0;
+}
+
+.flower-add-btn {
+  font-size: 11.5px; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+  background: var(--rose-dark); color: white; border: none; cursor: pointer;
+  transition: background 0.15s;
+}
+.flower-add-btn:hover { background: var(--rose-deeper); }
+
+.flower-canvas-wrap {
+  position: relative;
+  background: linear-gradient(180deg, var(--rose-light) 0%, var(--cream) 100%);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.bouquet-wrap-graphic {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 340px);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+.flower-canvas {
+  position: relative;
+  z-index: 1;
+  min-height: 140px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1px;
+  padding: 10px 6px 24px;
+}
+.flower-canvas-empty { position: relative; z-index: 1; font-size: 12.5px; color: var(--ink-muted); padding: 40px 0; width: 100%; text-align: center; }
+.flower-stem { width: 34px; height: 50px; display: block; flex-shrink: 0; filter: drop-shadow(0 2px 2px rgba(168,61,104,0.18)); }
+
+.flower-tally {
+  position: relative;
+  z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  margin-top: 12px;
+}
+.flower-tally-chip {
+  background: white; border: 1px solid var(--border); border-radius: 999px;
+  padding: 4px 6px 4px 10px; font-size: 11.5px; font-weight: 600; color: var(--ink);
+  display: flex; align-items: center; gap: 6px;
+}
+.tally-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+}
+.flower-tally-chip button {
+  border: none; background: var(--rose-light); color: var(--rose-dark);
+  width: 17px; height: 17px; border-radius: 50%; font-size: 12px; line-height: 1; cursor: pointer;
+}
+.flower-tally-chip button:hover { background: var(--rose-dark); color: white; }
+
+.flower-builder-footer {
+  display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px;
+}
+.flower-clear-btn { font-size: 12px; color: var(--ink-soft); background: none; border: none; text-decoration: underline; cursor: pointer; }
+.flower-clear-btn:hover { color: var(--rose-dark); }
 
 /* ===== SCROLL REVEAL ANIMATION (site-wide) ===== */
 .reveal {
