@@ -19,6 +19,7 @@
       <li><a href="home.html" class="active">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
       <li><a href="custom.html">Custom Order</a></li>
+      <li><a href="customize-bouquet.html">Customize Bouquet</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </nav>
@@ -60,7 +61,7 @@
   </div>
 
   <!-- CATEGORIES -->
-  <section class="section">
+  <section class="section reveal">
     <div class="container">
       <div class="section-label">What we make</div>
       <h2 class="section-title">Made by hand,<br><em>from the heart</em></h2>
@@ -102,7 +103,7 @@
   </section>
 
   <!-- BEST SELLERS -->
-  <section class="section section--tinted">
+  <section class="section section--tinted reveal">
     <div class="container">
       <div class="section-label">Fan favourites</div>
       <h2 class="section-title">Best <em>sellers</em></h2>
@@ -171,7 +172,7 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="section">
+  <section class="section reveal">
     <div class="container">
       <div class="section-label">Ordering is simple</div>
       <h2 class="section-title">How it <em>works</em></h2>
@@ -196,7 +197,7 @@
   </section>
 
   <!-- STATS -->
-  <section class="section section--tinted">
+  <section class="section section--tinted reveal">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-card">
@@ -220,7 +221,7 @@
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="section section--lavender">
+  <section class="section section--lavender reveal">
     <div class="container">
       <div class="section-label">Love notes</div>
       <h2 class="section-title">What people <em>say</em></h2>
@@ -272,32 +273,73 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM PROOF -->
-  <section class="section insta-strip">
+  <!-- OUR PAGE — INSTAGRAM REELS -->
+  <section class="section reels-strip reveal">
     <div class="container">
       <div class="section-label">Real orders, real customers</div>
-      <h2 class="section-title">Follow along on <em>Instagram</em></h2>
-      <p class="insta-sub">We post every new piece and customer order on @Tim.bells before it ever hits the shop.</p>
-      <div class="insta-grid">
-        <a href="https://instagram.com/Tim.bells" target="_blank" class="insta-item">
-          <img src="images/spiderman.jpg" alt="Tim Bells Instagram order" />
-        </a>
-        <a href="https://instagram.com/Tim.bells" target="_blank" class="insta-item">
-          <img src="images/pikachu.jpg" alt="Tim Bells Instagram order" />
-        </a>
-        <a href="https://instagram.com/Tim.bells" target="_blank" class="insta-item">
-          <img src="images/sunflower.jpg" alt="Tim Bells Instagram order" />
-        </a>
-        <a href="https://instagram.com/Tim.bells" target="_blank" class="insta-item">
-          <img src="images/tulip.jpg" alt="Tim Bells Instagram order" />
-        </a>
+      <h2 class="section-title">Our <em>Page</em></h2>
+      <p class="reels-sub">A peek at what we've posted on @Tim.bells — tap a reel to watch it on Instagram.</p>
+
+      <div class="reels-scroller" id="reelsScroller">
+
+        <!-- Reel card. Swap the video src for a real exported reel clip (mp4, portrait),
+             and set data-href to the actual Instagram reel/post URL. Until a video file
+             is added, the poster image below shows as a static preview and the card
+             still opens the real reel on click. -->
+        <div class="reel-card" data-href="https://instagram.com/Tim.bells">
+          <span class="reel-muted-tag">🔇 muted</span>
+          <video muted loop playsinline preload="metadata" poster="images/spiderman.jpg">
+            <!-- <source src="videos/reel-1.mp4" type="video/mp4"> -->
+          </video>
+          <div class="reel-play"><span class="reel-play-icon">▶</span></div>
+          <span class="reel-label">Spiderman order ✨</span>
+        </div>
+
+        <div class="reel-card" data-href="https://instagram.com/Tim.bells">
+          <span class="reel-muted-tag">🔇 muted</span>
+          <video muted loop playsinline preload="metadata" poster="images/pikachu.jpg">
+            <!-- <source src="videos/reel-2.mp4" type="video/mp4"> -->
+          </video>
+          <div class="reel-play"><span class="reel-play-icon">▶</span></div>
+          <span class="reel-label">Pikachu amigurumi 🧶</span>
+        </div>
+
+        <div class="reel-card" data-href="https://instagram.com/Tim.bells">
+          <span class="reel-muted-tag">🔇 muted</span>
+          <video muted loop playsinline preload="metadata" poster="images/sunflower.jpg">
+            <!-- <source src="videos/reel-3.mp4" type="video/mp4"> -->
+          </video>
+          <div class="reel-play"><span class="reel-play-icon">▶</span></div>
+          <span class="reel-label">Sunflower bouquet 🌻</span>
+        </div>
+
+        <div class="reel-card" data-href="https://instagram.com/Tim.bells">
+          <span class="reel-muted-tag">🔇 muted</span>
+          <video muted loop playsinline preload="metadata" poster="images/tulip.jpg">
+            <!-- <source src="videos/reel-4.mp4" type="video/mp4"> -->
+          </video>
+          <div class="reel-play"><span class="reel-play-icon">▶</span></div>
+          <span class="reel-label">Tulip bouquet 🌷</span>
+        </div>
+
+        <!--
+          ADD MORE REELS HERE. Copy a .reel-card block above and change:
+          - data-href: the real instagram.com/reel/... URL to open on click
+          - video source: add <source src="videos/your-clip.mp4" type="video/mp4">
+            (export a short portrait mp4 from Instagram/your phone and drop it in a
+            /videos folder next to /images)
+          - poster: a portrait thumbnail image shown before the video plays
+          - reel-label: short caption shown at the bottom of the card
+        -->
+
       </div>
+
       <a href="https://instagram.com/Tim.bells" target="_blank" class="btn btn-ghost">📸 Follow @Tim.bells</a>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section section--tinted">
+  <section class="section section--tinted reveal">
     <div class="container">
       <div class="section-label">Good to know</div>
       <h2 class="section-title">Frequently asked <em>questions</em></h2>
@@ -327,7 +369,7 @@
   </section>
 
   <!-- CUSTOM BANNER -->
-  <section class="custom-banner">
+  <section class="custom-banner reveal">
     <div class="container">
       <span class="banner-eyebrow">✦ Something special</span>
       <h2>Want something <em>one-of-a-kind?</em></h2>
@@ -347,6 +389,7 @@
           <a href="home.html">Home</a>
           <a href="shop.html">Shop</a>
           <a href="custom.html">Custom Order</a>
+          <a href="customize-bouquet.html">Customize Bouquet</a>
           <a href="about.html">About</a>
         </div>
         <div class="footer-col">

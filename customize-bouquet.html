@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customize Your Bouquet — Tim Bells ✦</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="home.html" class="nav-logo">✦ Tim Bells</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="custom.html">Custom Order</a></li>
+      <li><a href="customize-bouquet.html" class="active">Customize Bouquet</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-blob blob2" style="opacity:0.35;"></div>
+    <div class="container">
+      <span class="eyebrow">✦ Build your own</span>
+      <h1 class="page-title">Customize Your <em>Bouquet</em></h1>
+      <p>Pick a bouquet from our catalogue, or upload a photo of what you have in mind — either way, it'll be made just for you. 🌸</p>
+    </div>
+  </section>
+
+  <!-- CATALOGUE -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-label">Step 1</div>
+      <h2 class="section-title">Choose a <em>style</em></h2>
+
+      <div class="bouquet-grid" id="bouquetGrid">
+
+        <button type="button" class="bouquet-option" data-choice="Sunflower Bouquet" data-price="₹150">
+          <span class="bouquet-check">✓</span>
+          <img class="bouquet-option-img" src="images/sunflower.jpg" alt="Sunflower crochet bouquet" />
+          <div class="bouquet-option-body">
+            <h4>Sunflower Bouquet</h4>
+            <p>Bright yellow crochet sunflowers, stays cheerful forever.</p>
+            <span class="bouquet-option-price">₹150</span>
+          </div>
+        </button>
+
+        <button type="button" class="bouquet-option" data-choice="Tulip Bouquet" data-price="₹170">
+          <span class="bouquet-check">✓</span>
+          <img class="bouquet-option-img" src="images/tulip.jpg" alt="Tulip crochet bouquet" />
+          <div class="bouquet-option-body">
+            <h4>Tulip Bouquet</h4>
+            <p>A dozen crochet tulips — red, pink, or a mixed palette.</p>
+            <span class="bouquet-option-price">₹170</span>
+          </div>
+        </button>
+
+        <button type="button" class="bouquet-option" data-choice="Lily Bouquet" data-price="₹140">
+          <span class="bouquet-check">✓</span>
+          <img class="bouquet-option-img" src="images/lily.jpg" alt="Lily crochet bouquet" />
+          <div class="bouquet-option-body">
+            <h4>Lily Bouquet</h4>
+            <p>Elegant pipe-cleaner-and-crochet lilies, great for gifting.</p>
+            <span class="bouquet-option-price">₹140</span>
+          </div>
+        </button>
+
+        <button type="button" class="bouquet-option" id="uploadOption" data-choice="Custom (photo reference)" data-price="Quoted after review">
+          <span class="bouquet-check">✓</span>
+          <div class="bouquet-option-upload">📷</div>
+          <div class="bouquet-option-body">
+            <h4>Design Your Own</h4>
+            <p>Have a photo of a bouquet you love? Upload it and I'll recreate it.</p>
+            <span class="bouquet-option-price">Price quoted after review</span>
+          </div>
+        </button>
+
+        <!--
+          ADD MORE CATALOGUE OPTIONS HERE. Copy a .bouquet-option button block above and change:
+          - data-choice: name shown in the order message
+          - data-price: shown in the order message
+          - image src / alt / heading / description / displayed price
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section class="section section--tinted reveal">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="form-header">
+          <span class="caveat-tag">Almost there 🌸</span>
+          <h2>Step 2 — your <em>details</em></h2>
+        </div>
+
+        <div class="bouquet-summary" id="bouquetSummaryBox" style="display:none;"></div>
+
+        <!-- Photo upload — only shown for the "Design Your Own" option -->
+        <div class="form-group hidden" id="photoUploadGroup">
+          <label for="bouquetPhoto">Upload your reference photo</label>
+          <div class="upload-box">
+            <span>📎 Choose a clear photo of the bouquet you'd like</span><br/>
+            <input type="file" id="bouquetPhoto" name="attachment" accept="image/*" />
+            <img id="uploadPreview" class="upload-preview" alt="Preview of uploaded photo" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bouquetNotes">Any notes? (colours, size, occasion...)</label>
+          <textarea id="bouquetNotes" rows="3" placeholder="e.g. Mostly pink and white, about 6 inches tall, it's for a birthday 🎂"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bqName">Your name</label>
+            <input type="text" id="bqName" placeholder="Priya" />
+          </div>
+          <div class="form-group">
+            <label for="bqWaNumber">Your WhatsApp number</label>
+            <input type="text" id="bqWaNumber" placeholder="98765 43210" />
+          </div>
+        </div>
+
+        <!-- Path A: catalogue pick, or custom pick without wanting to email a photo yet — goes straight to WhatsApp -->
+        <button class="btn btn-primary btn-full" id="sendWaBtn" type="button" onclick="sendToWhatsApp()">💬 Send Order via WhatsApp</button>
+
+        <p class="form-note" id="waHint">I'll confirm your order and share final pricing on WhatsApp within 24 hours!</p>
+
+        <!-- Path B: only shown once a photo is attached — actually emails the photo to Tim Bells -->
+        <form id="photoEmailForm" class="hidden" action="https://formsubmit.co/tim.bells15@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="New Custom Bouquet Order (with photo) — Tim Bells" />
+          <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="Bouquet choice" id="hiddenChoice" value="" />
+          <input type="hidden" name="Notes" id="hiddenNotes" value="" />
+          <input type="hidden" name="Customer name" id="hiddenName" value="" />
+          <input type="hidden" name="Customer WhatsApp" id="hiddenWa" value="" />
+          <button type="submit" class="btn btn-ghost btn-full" style="margin-top:10px;">📧 Email My Photo &amp; Order Details</button>
+          <p class="form-note">This sends your photo straight to Tim Bells by email — do this first, then tap "Send Order via WhatsApp" above so we see your message too.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">✦ Tim Bells</div>
+      <p class="footer-tagline">Handmade with love in Delhi.<br>Every stitch, a little hug. 🧶</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="custom.html">Custom Order</a>
+          <a href="customize-bouquet.html">Customize Bouquet</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/Tim.bells" target="_blank">📸 @Tim.bells</a>
+          <a href="https://wa.me/919870556951?text=Hi%20Aastha!%20I%20found%20your%20shop%20on%20the%20Tim%20Bells%20website." target="_blank">💬 WhatsApp Us</a>
+          <a href="mailto:tim.bells15@gmail.com">✉️ tim.bells15@gmail.com</a>
+          <a href="tel:+919870556951">📞 +91 98705 56951</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Tim Bells · Made with ♥ by Aastha in Delhi</div>
+    </div>
+  </footer>
+
+  <!-- MUSIC PLAYER (persists across pages via player.js) -->
+  <div id="disc-player">
+    <div id="disc" title="Click to play/pause">
+      <div id="disc-inner">TB<br>✦</div>
+    </div>
+    <div id="disc-label">tap to play</div>
+  </div>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music/lover-instrumental.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="player.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const options = document.querySelectorAll('.bouquet-option');
+    const photoGroup = document.getElementById('photoUploadGroup');
+    const photoInput = document.getElementById('bouquetPhoto');
+    const preview = document.getElementById('uploadPreview');
+    const summaryBox = document.getElementById('bouquetSummaryBox');
+    const photoEmailForm = document.getElementById('photoEmailForm');
+    const waHint = document.getElementById('waHint');
+
+    let selectedChoice = null;
+    let selectedPrice = null;
+
+    options.forEach(btn => {
+      btn.addEventListener('click', () => {
+        options.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedChoice = btn.dataset.choice;
+        selectedPrice = btn.dataset.price;
+
+        summaryBox.style.display = 'block';
+        summaryBox.textContent = `✦ Selected: ${selectedChoice} (${selectedPrice})`;
+
+        const isCustom = btn.id === 'uploadOption';
+        photoGroup.classList.toggle('hidden', !isCustom);
+        if (!isCustom) {
+          photoInput.value = '';
+          preview.style.display = 'none';
+          photoEmailForm.classList.add('hidden');
+          waHint.textContent = "I'll confirm your order and share final pricing on WhatsApp within 24 hours!";
+        }
+      });
+    });
+
+    photoInput.addEventListener('change', () => {
+      if (photoInput.files && photoInput.files[0]) {
+        preview.src = URL.createObjectURL(photoInput.files[0]);
+        preview.style.display = 'block';
+        photoEmailForm.classList.remove('hidden');
+        waHint.textContent = "Tap \"Email My Photo & Order Details\" below first, then send this WhatsApp message so we see it right away.";
+      } else {
+        photoEmailForm.classList.add('hidden');
+      }
+    });
+
+    function currentDetails() {
+      const name  = document.getElementById('bqName').value.trim();
+      const wa    = document.getElementById('bqWaNumber').value.trim();
+      const notes = document.getElementById('bouquetNotes').value.trim();
+      return { name, wa, notes };
+    }
+
+    // Keep the hidden email-form fields in sync so the photo email includes full context
+    ['bqName', 'bqWaNumber', 'bouquetNotes'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        const { name, wa, notes } = currentDetails();
+        document.getElementById('hiddenName').value = name;
+        document.getElementById('hiddenWa').value = wa;
+        document.getElementById('hiddenNotes').value = notes;
+        document.getElementById('hiddenChoice').value = selectedChoice ? `${selectedChoice} (${selectedPrice})` : '';
+      });
+    });
+
+    photoEmailForm.addEventListener('submit', () => {
+      const { name, wa, notes } = currentDetails();
+      document.getElementById('hiddenName').value = name;
+      document.getElementById('hiddenWa').value = wa;
+      document.getElementById('hiddenNotes').value = notes;
+      document.getElementById('hiddenChoice').value = selectedChoice ? `${selectedChoice} (${selectedPrice})` : '';
+    });
+
+    function sendToWhatsApp() {
+      const { name, wa, notes } = currentDetails();
+
+      if (!selectedChoice) {
+        alert('Please choose a bouquet style above first! 🌸');
+        return;
+      }
+      if (!name) {
+        alert('Please enter your name! 🌸');
+        return;
+      }
+
+      const isCustom = selectedChoice === 'Custom (photo reference)';
+      let msg = `Hi Aastha! 🌸 I'd like to order a bouquet.\nStyle: ${selectedChoice} (${selectedPrice})\nName: ${name}`;
+      if (notes) msg += `\nNotes: ${notes}`;
+      if (wa) msg += `\nMy WhatsApp: ${wa}`;
+      if (isCustom) msg += `\n(I've also emailed a reference photo to tim.bells15@gmail.com — please check!)`;
+
+      window.open(`https://wa.me/919870556951?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>

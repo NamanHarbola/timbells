@@ -23,6 +23,13 @@
   </url>
 
   <url>
+    <loc>https://timbells.netlify.app/customize-bouquet</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://timbells.netlify.app/about</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>

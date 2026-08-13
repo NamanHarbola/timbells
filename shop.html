@@ -18,6 +18,7 @@
       <li><a href="home.html">Home</a></li>
       <li><a href="shop.html" class="active">Shop</a></li>
       <li><a href="custom.html">Custom Order</a></li>
+      <li><a href="customize-bouquet.html">Customize Bouquet</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </nav>
@@ -32,16 +33,18 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="container">
 
       <!-- FILTERS -->
       <div class="filters" id="filters">
         <button class="filter-btn active" data-cat="all">All</button>
         <button class="filter-btn" data-cat="crochet">🧶 Crochet</button>
+        <button class="filter-btn" data-cat="bouquets">🌸 Crochet Bouquet</button>
         <button class="filter-btn" data-cat="keychains">🔑 Crochet Keychains</button>
         <button class="filter-btn" data-cat="clips">📎 Crochet Clips</button>
         <button class="filter-btn" data-cat="plushies">🧸 Crochet Plushies</button>
+        <button class="filter-btn filter-btn--limited" data-cat="spiderman">🕸️ Spiderman · Limited Edition</button>
       </div>
 
       <div class="filters filters--budget" id="budgetFilters">
@@ -55,18 +58,19 @@
       <!-- PRODUCTS -->
       <div class="product-grid product-grid--large" id="productGrid">
 
-        <!-- KEYCHAINS -->
-        <div class="product-card" data-cat="keychains" data-price="450">
+        <!-- SPIDERMAN — LIMITED EDITION -->
+        <div class="product-card product-card--limited" data-cat="crochet spiderman" data-price="450">
+          <span class="limited-badge">⭐ Limited Edition</span>
           <div class="product-img" style="background:#fde8f5;">
-             <img src="images/spiderman.jpg" alt="Crochet Bouquet Keychain"
+             <img src="images/spiderman.jpg" alt="Crochet Spiderman Amigurumi"
        style="width:100%;height:100%;object-fit:cover;" />
           </div>
           <div class="product-info">
-            <span class="product-tag">Crochet Keychain</span>
-            <h3>Crochet Bouquet Keychain</h3>
-            <p>Handcrafted crochet flower bouquet</p>
+            <span class="product-tag">Crochet · Limited Edition</span>
+            <h3>Crochet Spiderman Amigurumi</h3>
+            <p>Fan-favourite web-slinger, handmade amigurumi — while stock lasts!</p>
             <div class="product-footer">
-              <span class="price">₹130</span>
+              <span class="price">₹450</span>
               <div class="buy-btn-group">
                 <a href="https://ig.me/m/Tim.bells" target="_blank" class="btn-sm btn-sm--ig" title="Order via Instagram DM">📸 DM</a>
                 <a href="https://wa.me/919870556951?text=Hi%20Aastha%21%20%F0%9F%8C%B8%20I%27d%20like%20to%20order%20the%20Spiderman%20Amigurumi%20%28%E2%82%B9450%29%20from%20your%20Tim%20Bells%20shop." target="_blank" class="btn-sm btn-sm--wa" title="Order via WhatsApp">💬 WhatsApp</a>
@@ -75,7 +79,27 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="clips" data-price="400">
+        <!-- CROCHET BOUQUET — placeholder photo, swap for a real bouquet product shot -->
+        <div class="product-card" data-cat="crochet bouquets" data-price="150">
+          <div class="product-img" style="background:#e8f5f0;">
+             <img src="images/tulip.jpg" alt="Crochet Bouquet"
+       style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="product-info">
+            <span class="product-tag">Crochet Bouquet</span>
+            <h3>Crochet Flower Bouquet</h3>
+            <p>A handmade mini crochet flower bouquet — pick your colour palette.</p>
+            <div class="product-footer">
+              <span class="price">₹150</span>
+              <div class="buy-btn-group">
+                <a href="https://ig.me/m/Tim.bells" target="_blank" class="btn-sm btn-sm--ig" title="Order via Instagram DM">📸 DM</a>
+                <a href="https://wa.me/919870556951?text=Hi%20Aastha%21%20%F0%9F%8C%B8%20I%27d%20like%20to%20order%20the%20Crochet%20Flower%20Bouquet%20%28%E2%82%B9150%29%20from%20your%20Tim%20Bells%20shop." target="_blank" class="btn-sm btn-sm--wa" title="Order via WhatsApp">💬 WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="crochet clips" data-price="400">
           <div class="product-img" style="background:#fff9e6;">
             <img src="images/pikachu.jpg" alt="Crochet Bow Hairclips"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -94,7 +118,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="keychains" data-price="500">
+        <div class="product-card" data-cat="crochet keychains" data-price="500">
           <div class="product-img" style="background:#ffe8e8;">
             <img src="images/deadpool.jpg" alt="Crochet Evil Eye Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -113,7 +137,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="keychains" data-price="380">
+        <div class="product-card" data-cat="crochet keychains" data-price="380">
           <div class="product-img" style="background:#e8f0ff;">
             <img src="images/dino.jpg" alt="Crochet Strawberry Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -132,7 +156,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="keychains" data-price="350">
+        <div class="product-card" data-cat="crochet keychains" data-price="350">
           <div class="product-img" style="background:#fef3e2;">
             <img src="images/sunflower.jpg" alt="Crochet Paw keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -151,7 +175,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="keychains" data-price="320">
+        <div class="product-card" data-cat="crochet keychains" data-price="320">
           <div class="product-img" style="background:#fde8f5;">
             <img src="images/lily.jpg" alt="Crochet Mini Octopus Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -170,7 +194,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="keychains" data-price="550">
+        <div class="product-card" data-cat="crochet keychains" data-price="550">
           <div class="product-img" style="background:#e8f5f0;">
             <img src="images/tulip.jpg" alt="Tulips Bouquet"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -189,7 +213,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="keychains" data-price="800">
+        <div class="product-card" data-cat="crochet keychains" data-price="800">
           <div class="product-img" style="background:#fff5e6;">
             <img src="images/pet-portrait.jpg" alt="Crochet Cigarette Keychain"
        style="width:100%;height:100%;object-fit:cover;" />
@@ -210,7 +234,14 @@
 
         <!--
           ADD NEW PRODUCTS HERE. Copy a product-card block above and change:
-          - data-cat: "crochet" | "keychains" | "clips" | "plushies"
+          - data-cat: always start with "crochet" (so it shows under the Crochet filter too),
+            then add its specific type, space-separated. e.g. "crochet keychains",
+            "crochet clips", "crochet plushies", "crochet bouquets", "crochet spiderman".
+            A product can have more than one type if it fits multiple, e.g.
+            "crochet keychains plushies".
+          - For a Limited Edition item like Spiderman: add class="product-card product-card--limited"
+            and a <span class="limited-badge">⭐ Limited Edition</span> as the first thing inside
+            the card (see the Spiderman card above for the exact pattern).
           - data-price: plain number, no ₹ symbol (used for budget filtering)
           - image src, alt text, product-tag, title, description, price, WhatsApp message
         -->
@@ -241,6 +272,7 @@
           <a href="home.html">Home</a>
           <a href="shop.html">Shop</a>
           <a href="custom.html">Custom Order</a>
+          <a href="customize-bouquet.html">Customize Bouquet</a>
           <a href="about.html">About</a>
         </div>
         <div class="footer-col">
@@ -281,7 +313,8 @@
     function applyFilters() {
       let visibleCount = 0;
       cards.forEach(card => {
-        const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
+        const cardCats = card.dataset.cat.split(' ');
+        const matchesCat = activeCat === 'all' || cardCats.includes(activeCat);
 
         let matchesBudget = true;
         if (activeBudget !== 'all') {
