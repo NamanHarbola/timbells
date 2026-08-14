@@ -295,38 +295,69 @@
       customColorHex[type] = FLOWERS[type].colors[0].hex;
     });
 
-    // Draws a small decorative "stem + bloom" flower graphic for a given type/colour —
-    // a stylised drawing for visual bouquet-building, not a literal product photo.
-    function flowerSVG(type, hex) {
-      const stem = `<path d="M17 48 Q15 34 17 24" stroke="#5f9457" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M17 36 Q10 32 8 26" stroke="#5f9457" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M17 42 Q24 39 26 33" stroke="#5f9457" stroke-width="1.4" fill="none" stroke-linecap="round"/>`;
-      let bloom = '';
-      if (type === 'rose') {
-        bloom = `<circle cx="17" cy="14" r="10.5" fill="${hex}" opacity="0.28"/>
-          <circle cx="17" cy="14" r="8.2" fill="${hex}" opacity="0.5"/>
-          <path d="M17 8 Q22 10 21 14 Q22 18 17 20 Q12 18 13 14 Q12 10 17 8Z" fill="${hex}"/>
-          <path d="M17 10.5 Q20 12 19.3 14.2 Q20 16.5 17 18 Q14 16.5 14.7 14.2 Q14 12 17 10.5Z" fill="${hex}" opacity="0.85"/>
-          <circle cx="17" cy="14" r="1.6" fill="rgba(0,0,0,0.18)"/>`;
-      } else if (type === 'tulip') {
-        bloom = `<path d="M8 20 Q8 6 17 3 Q26 6 26 20 Q21 15 17 16.5 Q13 15 8 20Z" fill="${hex}"/>
-          <path d="M12 19 Q12 8 17 5 Q17 5 17 16.5 Q14 15.5 12 19Z" fill="rgba(255,255,255,0.25)"/>`;
-      } else if (type === 'lily') {
-        bloom = `<g>
-          <ellipse cx="17" cy="14" rx="2.8" ry="9.5" fill="${hex}"/>
-          <ellipse cx="17" cy="14" rx="2.8" ry="9.5" fill="${hex}" transform="rotate(60 17 14)"/>
-          <ellipse cx="17" cy="14" rx="2.8" ry="9.5" fill="${hex}" transform="rotate(120 17 14)"/>
-          <ellipse cx="17" cy="14" rx="1.6" ry="6.5" fill="rgba(255,255,255,0.3)"/>
-          <circle cx="17" cy="14" r="1.9" fill="#c9962f"/>
-        </g>`;
-      } else if (type === 'daisy') {
-        bloom = [0,45,90,135,180,225,270,315].map(a => `<ellipse cx="17" cy="7" rx="2.5" ry="6.5" fill="${hex}" transform="rotate(${a} 17 14)"/>`).join('') + `<circle cx="17" cy="14" r="4.2" fill="#f0b429"/><circle cx="17" cy="14" r="4.2" fill="url(#daisyDot)" opacity="0.4"/>`;
-      } else if (type === 'sunflower') {
-        bloom = [0,30,60,90,120,150,180,210,240,270,300,330].map(a => `<ellipse cx="17" cy="6" rx="2.7" ry="7.3" fill="${hex}" transform="rotate(${a} 17 14)"/>`).join('') + `<circle cx="17" cy="14" r="5.3" fill="#6b4423"/><circle cx="17" cy="14" r="5.3" fill="url(#daisyDot)" opacity="0.35"/>`;
-      } else if (type === 'lavender') {
-        bloom = [5,9,13,17,21,25].map(y => `<circle cx="17" cy="${y}" r="2" fill="${hex}"/><circle cx="14" cy="${y+2.2}" r="1.5" fill="${hex}"/><circle cx="20" cy="${y+2.2}" r="1.5" fill="${hex}"/>`).join('');
+    // Draws a hand-drawn, line-art style "stem + bloom" flower graphic — inked outlines with
+    // a soft colour wash in the chosen hue, closer to a botanical sketch than a flat emoji icon.
+    // Purely for visual bouquet-building, not a literal product photo.
+    const FLOWER_INK = '#4a3728';
+
+    function petalRing(cx, cy, count, petalLen, petalW, hex) {
+      let out = '';
+      for (let i = 0; i < count; i++) {
+        const a = (360 / count) * i;
+        out += `<path d="M${cx} ${cy} C${cx - petalW} ${cy - petalLen * 0.4} ${cx - petalW * 0.55} ${cy - petalLen * 0.85} ${cx} ${cy - petalLen} C${cx + petalW * 0.55} ${cy - petalLen * 0.85} ${cx + petalW} ${cy - petalLen * 0.4} ${cx} ${cy}Z" transform="rotate(${a} ${cx} ${cy})" fill="${hex}" fill-opacity="0.16" stroke="${FLOWER_INK}" stroke-width="1.1" stroke-linejoin="round"/>`;
       }
-      return `<svg class="flower-stem" viewBox="0 0 34 50" xmlns="http://www.w3.org/2000/svg">
-        <defs><radialGradient id="daisyDot"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-        ${stem}${bloom}
+      return out;
+    }
+
+    function stemAndLeaf(topY) {
+      return `<path d="M20 ${topY} Q18.5 ${topY + 16} 20 ${topY + 32}" stroke="${FLOWER_INK}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M19.5 ${topY + 12} C13 ${topY + 10} 8 ${topY + 13} 6 ${topY + 18} C11.5 ${topY + 19.5} 17 ${topY + 17} 19.5 ${topY + 12}Z" fill="none" stroke="${FLOWER_INK}" stroke-width="1.1" stroke-linejoin="round"/>
+        <path d="M19 ${topY + 12} C13.5 ${topY + 11} 9.5 ${topY + 13.5} 7.5 ${topY + 17.5}" stroke="${FLOWER_INK}" stroke-width="0.7" fill="none" opacity="0.7"/>`;
+    }
+
+    function flowerSVG(type, hex) {
+      let bloom = '';
+      let stemTopY = 30;
+
+      if (type === 'rose') {
+        bloom = `
+          <path d="M20 5 C25 5 28 9 27 13 C31 12 33 16 31 19 C33 23 30 26 27 25 C28 29 24 32 20 30 C16 32 12 29 13 25 C10 26 7 23 9 19 C7 16 9 12 13 13 C12 9 15 5 20 5Z" fill="${hex}" fill-opacity="0.16" stroke="${FLOWER_INK}" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M20 9 C23.6 9.6 25.6 12.6 24.6 15.6 C26.8 16.4 27.4 19 25.6 20.8 C27 23 25.6 25.6 23 25.4" fill="none" stroke="${FLOWER_INK}" stroke-width="0.9" opacity="0.8"/>
+          <path d="M20 9 C16.4 9.6 14.4 12.6 15.4 15.6 C13.2 16.4 12.6 19 14.4 20.8 C13 23 14.4 25.6 17 25.4" fill="none" stroke="${FLOWER_INK}" stroke-width="0.9" opacity="0.8"/>
+          <path d="M20 13.5 C21.8 14 22.6 15.8 21.6 17.4 C23 18.4 22.6 20.2 21 20.8" fill="none" stroke="${FLOWER_INK}" stroke-width="0.7" opacity="0.7"/>
+          <path d="M20 13.5 C18.2 14 17.4 15.8 18.4 17.4 C17 18.4 17.4 20.2 19 20.8" fill="none" stroke="${FLOWER_INK}" stroke-width="0.7" opacity="0.7"/>
+          <path d="M13 25 C14 28 17 30 20 30 C15 27 13 25 13 25Z" fill="${hex}" fill-opacity="0.12" stroke="${FLOWER_INK}" stroke-width="0.9" stroke-linejoin="round"/>
+          <path d="M27 25 C26 28 23 30 20 30 C25 27 27 25 27 25Z" fill="${hex}" fill-opacity="0.12" stroke="${FLOWER_INK}" stroke-width="0.9" stroke-linejoin="round"/>`;
+        stemTopY = 30;
+      } else if (type === 'tulip') {
+        const petal = (rot) => `<path d="M20 21 C17.3 16 17 8 20 4 C23 8 22.7 16 20 21Z" transform="rotate(${rot} 20 21)" fill="${hex}" fill-opacity="0.16" stroke="${FLOWER_INK}" stroke-width="1.1" stroke-linejoin="round"/>`;
+        bloom = petal(-16) + petal(16) + petal(0);
+        stemTopY = 21;
+      } else if (type === 'lily') {
+        const petal = (a) => `<path d="M20 18 C16.5 13 15.5 5 19 0.5 C19.6 4 20 8 20 12 C20 8 20.4 4 21 0.5 C24.5 5 23.5 13 20 18Z" transform="rotate(${a} 20 18)" fill="${hex}" fill-opacity="0.14" stroke="${FLOWER_INK}" stroke-width="1.1" stroke-linejoin="round"/>`;
+        bloom = [0, 60, 120, 180, 240, 300].map(petal).join('') +
+          [0, 30, -30, 60].map(a => `<line x1="20" y1="18" x2="20" y2="6" stroke="${FLOWER_INK}" stroke-width="0.6" opacity="0.7" transform="rotate(${a} 20 18)"/><circle cx="20" cy="6" r="0.9" fill="#c9962f" transform="rotate(${a} 20 18)"/>`).join('');
+        stemTopY = 26;
+      } else if (type === 'daisy') {
+        bloom = petalRing(20, 18, 11, 13, 3, hex) +
+          `<circle cx="20" cy="18" r="3.6" fill="#f0b429" fill-opacity="0.55" stroke="${FLOWER_INK}" stroke-width="1"/>`;
+        stemTopY = 30;
+      } else if (type === 'sunflower') {
+        bloom = petalRing(20, 18, 14, 15, 3.6, hex) +
+          `<circle cx="20" cy="18" r="4.8" fill="#6b4423" fill-opacity="0.4" stroke="${FLOWER_INK}" stroke-width="1.1"/>` +
+          `<path d="M16 15 L24 21 M24 15 L16 21 M20 13.5 L20 22.5 M15.5 18 L24.5 18" stroke="${FLOWER_INK}" stroke-width="0.5" opacity="0.55"/>`;
+        stemTopY = 32;
+      } else if (type === 'lavender') {
+        bloom = [3, 6.5, 10, 13.5, 17, 20.5].map(y => `
+          <ellipse cx="20" cy="${y}" rx="2" ry="2.8" fill="${hex}" fill-opacity="0.32" stroke="${FLOWER_INK}" stroke-width="0.8"/>
+          <ellipse cx="16.8" cy="${y + 1.8}" rx="1.6" ry="2.2" fill="${hex}" fill-opacity="0.32" stroke="${FLOWER_INK}" stroke-width="0.7"/>
+          <ellipse cx="23.2" cy="${y + 1.8}" rx="1.6" ry="2.2" fill="${hex}" fill-opacity="0.32" stroke="${FLOWER_INK}" stroke-width="0.7"/>`).join('');
+        stemTopY = 26;
+      }
+
+      return `<svg class="flower-stem" viewBox="0 0 40 78" xmlns="http://www.w3.org/2000/svg">
+        ${bloom}
+        ${stemAndLeaf(stemTopY)}
       </svg>`;
     }
 
